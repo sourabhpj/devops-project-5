@@ -1,22 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage("checkout"){
+        stage("checkout code"){
             steps{
-                    checkout scm
+                   checkout scm
             }
         }
         stage("Build"){
             steps{
-                sh 'docker build -t sourabh-img .'
+                    sh 'docker build -t my-nginx-image .'
             }
         }
         stage("Deploy"){
             steps{
-                sh 'docker stop sourabh-img || true'
-                sh 'docker rm sourabh-img || true'
-                sh 'docker run -d --name sourabh-img -p 8081:80 sourabh-img'
+                   sh 'docker stop my-nginx-image || true'
+                   sh 'docker rm my-nginx-image || true'
+                   sh 'docker run -d --name my-nginx-image -p 80:80 my-nginx-image'
             }
         }
+        
     }
 }
