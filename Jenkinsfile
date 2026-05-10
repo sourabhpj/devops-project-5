@@ -12,9 +12,9 @@ pipeline {
             }
         }
         stage('Deploy to container') {
-            sh 'docker stop my-nginx-container || true'
-            sh 'docker rm my-nginx-container || true'
-            sh 'docker run -d --name my-nginx-container -p 80:80 my-nginx-image'
+            sh 'docker stop my-nginx-image || true'
+            sh 'docker rm my-nginx-image || true'
+            sh 'docker run -d --name my-nginx-image -p 80:80 my-nginx-image'
         }
     }
 }
