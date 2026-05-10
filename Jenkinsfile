@@ -6,7 +6,7 @@ pipeline {
                     checkout scm
             }
         }
-        stage(){
+        stage("Build"){
             steps{
                 sh 'docker build -t sourabh-img .'
             }
