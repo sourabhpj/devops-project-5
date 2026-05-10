@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             step {
-                git scm
+                checkout scm
             }
         }
         stage('Build Docker Image') {
